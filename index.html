@@ -4,9 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <h1>Hello World</h1>
-    <h2>Noomen Belmechri</h2>
+    <header>
+        <h1>Hello World</h1>
+    </header>
+
+    <main>
+        <section aria-labelledby="intro-heading">
+            <h2 id="intro-heading">Noomen Belmechri</h2>
+            <img src="images/forest-sunset.jpg" alt="A forest scene at sunset with warm lighting filtering through the trees" width="500" />
+        </section>
+
+        <section aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact me</h2>
+            <form action="#" method="post">
+                <div class="form-field">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" inputmode="tel" placeholder="(555) 123-4567" />
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="date">Preferred Contact Date</label>
+                    <input type="date" id="date" name="date" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="referral">How did you hear about us?</label>
+                    <select id="referral" name="referral" required>
+                        <option value="">Select an option</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="linkedin">LinkedIn</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

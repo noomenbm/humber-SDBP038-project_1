@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #1f2933;
+    background: #dce8de;
+}
+
+header,
+main {
+    width: min(90%, 960px);
+    margin: 0 auto;
+}
+
+header {
+    padding: 3rem 0 1.5rem;
+    text-align: center; /* centbered hello world */
+}
+
+h1,
+h2 {
+    margin-bottom: 0.75rem;
+}
+
+section { /* each section has a nicely rounded border */
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 18px 40px rgba(31, 41, 51, 0.12);
+}
+
+img { /* image is rounded too */
+    display: block;
+    width: min(100%, 500px);
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 16px;
+}
+
+form { /* both the form and the fields use grid display */
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.form-field {
+    display: grid;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 600;
+    color: #243b2f;
+}
+
+input,
+select,
+textarea { /* styling the fields */
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #b9cbbd;
+    border-radius: 12px;
+    background-color: #fdfefd;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #5c8a67;
+    box-shadow: 0 0 0 4px rgba(92, 138, 103, 0.15);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 9rem;
+}
+
+button {
+    justify-self: start;
+    padding: 0.9rem 1.6rem;
+    border: none;
+    border-radius: 999px;
+    background: #446b4c;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(68, 107, 76, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+button:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 28px rgba(68, 107, 76, 0.28);
+}
+
+/* Adjust it for small screens */
+@media (max-width: 640px) {
+    section {
+        padding: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+        justify-self: stretch;
+    }
+}
