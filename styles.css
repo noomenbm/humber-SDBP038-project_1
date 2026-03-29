@@ -149,6 +149,46 @@ p {
     margin-top: 1.5rem;
 }
 
+/* space above the homepage feature section */
+.home-feature {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* homepage image block */
+.home-feature-media {
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-soft);
+}
+
+/* homepage feature image style */
+.home-feature-image {
+    display: block;
+    width: 100%;
+    height: clamp(16rem, 45vw, 28rem);
+    object-fit: cover;
+}
+
+/* homepage text content panel style */
+.home-feature-content {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-soft);
+    border-radius: 1.5rem;
+    background-color: rgba(255, 250, 244, 0.96);
+    box-shadow: var(--shadow-soft);
+}
+
+/* secondary heading in content sections style */
+.home-feature-content h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
 /* space above the contact form section */
 .contact-section {
     margin-top: 1.5rem;
@@ -347,6 +387,11 @@ p {
     /* increases hero section padding */
     .hero-section {
         padding: 3rem;
+    }
+
+    /* gives the homepage content panel more padding */
+    .home-feature-content {
+        padding: 2rem;
     }
 
     /* project card becomes two columns */
