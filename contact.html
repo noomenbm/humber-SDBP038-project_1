@@ -24,9 +24,42 @@
 
     <main class="page-content">
         <section class="hero-section" aria-labelledby="contact-title">
-            <p class="eyebrow">Placeholder Page</p>
-            <h1 id="contact-title">Contact</h1>
-            <p>Adding accessible form later.</p>
+            <p class="eyebrow">Contact form</p>
+            <h1 id="contact-title">Contact me</h1>
+            <p>This is a contact form with the proper  elements and focus/hover states.</p>
+        </section>
+
+        <section class="contact-section" aria-labelledby="contact-form-title">
+            <form class="contact-form" action="#" method="post">
+                <h2 id="contact-form-title">Send a Message</h2>
+
+                <div class="form-field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-field">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Choose a subject</option>
+                        <option value="inquiry">Inquiry</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="support">Support</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button class="form-button" type="submit">Send Message</button>
+            </form>
         </section>
     </main>
 </body>

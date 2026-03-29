@@ -149,6 +149,93 @@ p {
     margin-top: 1.5rem;
 }
 
+/* space above the contact form section */
+.contact-section {
+    margin-top: 1.5rem;
+}
+
+/* the form container is a grid */
+.contact-form {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-soft);
+    border-radius: 1.5rem;
+    background-color: rgba(255, 250, 244, 0.96);
+    box-shadow: var(--shadow-soft);
+}
+
+/* form heading style */
+.contact-form h2 {
+    margin: 0 0 0.25rem;
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
+
+/* label and form field contianers are grids themselves */
+.form-field {
+    display: grid;
+    gap: 0.45rem;
+}
+
+/* form labels style */
+.form-field label {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* shared form field style */
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-soft);
+    border-radius: 1rem;
+    font: inherit;
+    color: var(--text-main);
+    background-color: var(--surface-strong);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* textarea grow only vertically */
+.form-field textarea {
+    resize: vertical;
+    min-height: 10rem;
+}
+
+/* keyboard focus style on form fields */
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(184, 92, 56, 0.18);
+    background-color: #fffdf9;
+}
+
+/* submit button style */
+.form-button {
+    justify-self: start;
+    min-height: 2.9rem;
+    padding: 0.8rem 1.25rem;
+    border: 0;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: var(--accent-dark);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* hover and focus styles for submit button */
+.form-button:hover,
+.form-button:focus-visible {
+    background-color: var(--accent);
+    transform: translateY(-1px);
+}
+
 /* main project card layout and container style */
 .project-card {
     display: grid;
@@ -275,6 +362,11 @@ p {
     }
 
     .project-card-content {
+        padding: 2rem;
+    }
+
+    /* contact form more padding */
+    .contact-form {
         padding: 2rem;
     }
 }
