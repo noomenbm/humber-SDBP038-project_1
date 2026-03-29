@@ -1,7 +1,9 @@
+/* classic sizing calculations include padding and borders */
 * {
     box-sizing: border-box;
 }
 
+/* variables */
 :root {
     --page-bg: #f4efe8;
     --surface: #fffaf4;
@@ -14,6 +16,7 @@
     --shadow-soft: 0 18px 36px rgba(31, 41, 51, 0.08);
 }
 
+/* default page font etc */
 body {
     margin: 0;
     font-family: Georgia, "Times New Roman", serif;
@@ -29,6 +32,7 @@ a {
     text-decoration: none;
 }
 
+/* keeps the header and main content centered similarly */
 .site-header,
 .page-content {
     width: min(100% - 2rem, 70rem);
@@ -39,6 +43,7 @@ a {
     padding: 1rem 0 0;
 }
 
+/* styles the navigation container with flexbox */
 .site-nav {
     display: flex;
     flex-direction: column;
@@ -50,11 +55,13 @@ a {
     box-shadow: var(--shadow-soft);
 }
 
+/* logo aligned inside the nav */
 .site-logo {
     display: inline-flex;
     align-items: center;
 }
 
+/* logo image size and style */
 .site-logo-image {
     display: block;
     width: 4rem;
@@ -64,6 +71,7 @@ a {
     box-shadow: 0 10px 20px rgba(31, 41, 51, 0.08);
 }
 
+/* lays out the nav links in a wrapping flex row */
 .nav-list {
     display: flex;
     flex-wrap: wrap;
@@ -73,6 +81,7 @@ a {
     list-style: none;
 }
 
+/* pill style for nav links */
 .nav-link {
     display: inline-block;
     padding: 0.65rem 1rem;
@@ -83,6 +92,7 @@ a {
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
+/* adds hover and keyboard focus styles to nav links */
 .nav-link:hover,
 .nav-link:focus-visible {
     color: #ffffff;
@@ -90,15 +100,18 @@ a {
     transform: translateY(-1px);
 }
 
+/* highlights the link for the current page */
 .nav-link-current {
     color: #ffffff;
     background-color: var(--accent-dark);
 }
 
+/* vertical spacing around main page content */
 .page-content {
     padding: 1.5rem 0 3rem;
 }
 
+/* hero section style */
 .hero-section {
     padding: 2rem 1.25rem;
     border: 1px solid var(--border-soft);
@@ -107,6 +120,7 @@ a {
     box-shadow: var(--shadow-soft);
 }
 
+/* hero eyebrow style */
 .eyebrow {
     margin: 0 0 0.5rem;
     font-size: 0.8rem;
@@ -116,34 +130,151 @@ a {
     color: var(--accent-dark);
 }
 
+/* h1 styling */
 h1 {
     margin: 0 0 0.75rem;
     font-size: clamp(2rem, 7vw, 3.6rem);
     line-height: 1.1;
 }
 
+/* default p style */
 p {
     margin: 0;
     max-width: 100ch;
     color: var(--text-soft);
 }
 
+/* custom manual space */
+.project-showcase {
+    margin-top: 1.5rem;
+}
+
+/* main project card layout and container style */
+.project-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    border-radius: 1.5rem;
+    background-color: rgba(255, 250, 244, 0.96);
+    box-shadow: 0 14px 30px rgba(31, 41, 51, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* vertical shift effect of the card on hover */
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 42px rgba(31, 41, 51, 0.14);
+}
+
+/* creates a grid area inside the proj card so a "Web Design" project category badge appears on top of the image */
+.project-card-media {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: start;
+}
+
+/* project image fills the card media area */
+.project-card-image {
+    grid-area: 1 / 1;
+    display: block;
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+}
+
+/* styles the project category badge */
+.project-badge {
+    grid-area: 1 / 1;
+    align-self: start;
+    justify-self: start;
+    margin: 1rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background-color: rgba(255, 250, 244, 0.92);
+    color: var(--accent-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* organizes the card content area, the text and button area with grid */
+.project-card-content {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+/* project card heading style */
+.project-card-content h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
+
+/* styles the project button */
+.project-button {
+    align-self: end;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    background-color: var(--accent-dark);
+    color: #ffffff;
+    font-weight: 700;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* add hover and focus to button */
+.project-button:hover,
+.project-button:focus-visible {
+    background-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+/* applies layout changes for wider screens */
 @media (min-width: 700px) {
+    /* adds space above the header */
     .site-header {
         padding-top: 1.5rem;
     }
 
+    /* change the logo and nav flex for larger screens */
     .site-nav {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
     }
 
+    /* links go right on larger screens */
     .nav-list {
         justify-content: flex-end;
     }
 
+    /* increases hero section padding */
     .hero-section {
         padding: 3rem;
+    }
+
+    /* project card becomes two columns */
+    .project-card {
+        grid-template-columns: minmax(18rem, 1.1fr) minmax(20rem, 1fr);
+        grid-template-rows: auto;
+    }
+
+    /* project image stretches */
+    .project-card-image {
+        height: 100%;
+        min-height: 100%;
+    }
+
+    .project-card-content {
+        padding: 2rem;
     }
 }
