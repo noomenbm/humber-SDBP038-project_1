@@ -1,30 +1,39 @@
-/* classic sizing calculations include padding and borders */
 * {
     box-sizing: border-box;
 }
 
-/* variables */
 :root {
-    --page-bg: #f4efe8;
-    --surface: #fffaf4;
+    --page-bg: #edf3f6;
+    --surface: rgba(255, 255, 255, 0.86);
     --surface-strong: #ffffff;
-    --text-main: #1f2933;
-    --text-soft: #52606d;
-    --border-soft: #dccfc0;
-    --accent: #b85c38;
-    --accent-dark: #8f4325;
-    --shadow-soft: 0 18px 36px rgba(31, 41, 51, 0.08);
+    --text-main: #162033;
+    --text-soft: #5b6b7f;
+    --border-soft: #d6e0e8;
+    --accent: #0f766e;
+    --accent-dark: #134e4a;
+    --focus-ring: rgba(15, 118, 110, 0.18);
+    --shadow-soft: 0 18px 36px rgba(22, 32, 51, 0.08);
+    --shadow-card: 0 16px 30px rgba(22, 32, 51, 0.1);
 }
 
-/* default page font etc */
 body {
     margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
+    /* font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif; */
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background:
-        radial-gradient(circle at top left, rgba(184, 92, 56, 0.12), transparent 28rem),
-        linear-gradient(180deg, #f8f3ec 0%, var(--page-bg) 100%);
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 28rem),
+        linear-gradient(180deg, #f8fbfc 0%, var(--page-bg) 100%);
+}
+
+.site-header,
+.site-footer {
+    width: 100%;
+    padding-inline: clamp(1rem, 3vw, 2.5rem);
 }
 
 a {
@@ -32,67 +41,90 @@ a {
     text-decoration: none;
 }
 
-/* keeps the header and main content centered similarly */
-.site-header,
-.page-content {
-    width: min(100% - 2rem, 70rem);
-    margin: 0 auto;
+img {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    line-height: 1.15;
+}
+
+p {
+    margin: 0;
+    color: var(--text-soft);
 }
 
 .site-header {
-    padding: 1rem 0 0;
+    padding: 0;
 }
 
-/* styles the navigation container with flexbox */
+.page-content {
+    width: 100%;
+    margin: 0;
+    padding: 1.5rem clamp(1rem, 3vw, 2.5rem) 3rem;
+    flex: 1;
+}
+
 .site-nav {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 0.75rem;
+    padding: 0.75rem 0.875rem;
     border: 1px solid var(--border-soft);
-    border-radius: 1.5rem;
-    background-color: rgba(255, 250, 244, 0.92);
+    background-color: var(--surface);
     box-shadow: var(--shadow-soft);
 }
 
-/* logo aligned inside the nav */
 .site-logo {
     display: inline-flex;
     align-items: center;
 }
 
-/* logo image size and style */
-.site-logo-image {
-    display: block;
-    width: 4rem;
-    height: auto;
-    border-radius: 1rem;
-    background-color: var(--surface-strong);
-    box-shadow: 0 10px 20px rgba(31, 41, 51, 0.08);
+.site-logo-mark {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0.375rem 0.5rem;
+    color: var(--accent-dark);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-shadow: 0 0 8px rgba(15, 118, 110, 0.22);
 }
 
-/* lays out the nav links in a wrapping flex row */
+.site-logo-cursor {
+    display: inline-block;
+    width: 0.58em;
+    height: 1.1em;
+    margin: 0 0.08em 0 0.14em;
+    background-color: var(--accent);
+    box-shadow: 0 0 8px rgba(15, 118, 110, 0.22);
+    animation: logo-cursor-blink 1.05s steps(1, end) infinite;
+}
+
 .nav-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-/* pill style for nav links */
 .nav-link {
     display: inline-block;
-    padding: 0.65rem 1rem;
+    padding: 0.5rem 0.875rem;
     border: 1px solid transparent;
-    border-radius: 999px;
+    line-height: 1.2;
     color: var(--text-soft);
     background-color: var(--surface-strong);
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-/* adds hover and keyboard focus styles to nav links */
 .nav-link:hover,
 .nav-link:focus-visible {
     color: #ffffff;
@@ -100,201 +132,195 @@ a {
     transform: translateY(-1px);
 }
 
-/* highlights the link for the current page */
 .nav-link-current {
     color: #ffffff;
     background-color: var(--accent-dark);
 }
 
-/* vertical spacing around main page content */
-.page-content {
-    padding: 1.5rem 0 3rem;
-}
-
-/* hero section style */
 .hero-section {
-    padding: 2rem 1.25rem;
-    border: 1px solid var(--border-soft);
-    border-radius: 1.5rem;
-    background-color: rgba(255, 250, 244, 0.92);
-    box-shadow: var(--shadow-soft);
-}
-
-/* hero eyebrow style */
-.eyebrow {
-    margin: 0 0 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-dark);
-}
-
-/* h1 styling */
-h1 {
-    margin: 0 0 0.75rem;
-    font-size: clamp(2rem, 7vw, 3.6rem);
-    line-height: 1.1;
-}
-
-/* default p style */
-p {
-    margin: 0;
-    max-width: 100ch;
-    color: var(--text-soft);
-}
-
-/* custom manual space */
-.project-showcase {
-    margin-top: 1.5rem;
-}
-
-/* space above the homepage feature section */
-.home-feature {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-/* homepage image block */
-.home-feature-media {
-    overflow: hidden;
-    border-radius: 1.5rem;
-    box-shadow: var(--shadow-soft);
-}
-
-/* homepage feature image style */
-.home-feature-image {
-    display: block;
-    width: 100%;
-    height: clamp(16rem, 45vw, 28rem);
-    object-fit: cover;
-}
-
-/* homepage text content panel style */
-.home-feature-content {
     display: grid;
     gap: 1rem;
     padding: 1.5rem;
-    border: 1px solid var(--border-soft);
-    border-radius: 1.5rem;
-    background-color: rgba(255, 250, 244, 0.96);
-    box-shadow: var(--shadow-soft);
+    border-top: 1px solid rgba(15, 118, 110, 0.28);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-/* secondary heading in content sections style */
-.home-feature-content h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    line-height: 1.2;
-}
-
-/* space above the contact form section */
+.hero-section,
+.featured-projects,
+.project-showcase,
 .contact-section {
     margin-top: 1.5rem;
 }
 
-/* the form container is a grid */
-.contact-form {
-    display: grid;
-    gap: 1rem;
+.home-hero {
     padding: 1.5rem;
+}
+
+.hero-layout {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.hero-copy {
+    display: grid;
+    gap: 0.9rem;
+}
+
+h1 {
+    font-size: clamp(2.0rem, 4vw, 3.0rem);
+}
+
+.hero-role {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+}
+
+.hero-media {
+    justify-self: center;
+    
+    width: min(100%, 20rem);
+}
+
+.hero-image {
+    display: block;
+    aspect-ratio: 1 / 1;
+    width: 70%;
+    margin: auto;
+    object-fit: cover;
     border: 1px solid var(--border-soft);
-    border-radius: 1.5rem;
-    background-color: rgba(255, 250, 244, 0.96);
+    background-color: var(--surface-strong);
     box-shadow: var(--shadow-soft);
 }
 
-/* form heading style */
-.contact-form h2 {
-    margin: 0 0 0.25rem;
-    font-size: 1.6rem;
-    line-height: 1.2;
+.featured-projects {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(22, 32, 51, 0.12);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-/* label and form field contianers are grids themselves */
-.form-field {
-    display: grid;
-    gap: 0.45rem;
-}
-
-/* form labels style */
-.form-field label {
-    font-weight: 700;
-    color: var(--text-main);
-}
-
-/* shared form field style */
-.form-field input,
-.form-field select,
-.form-field textarea {
-    width: 100%;
-    padding: 0.85rem 1rem;
+.contact-form {
     border: 1px solid var(--border-soft);
-    border-radius: 1rem;
-    font: inherit;
+    background-color: rgba(255, 255, 255, 0.82);
+    box-shadow: var(--shadow-soft);
+}
+
+.site-footer {
+    padding-bottom: 1.5rem;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(22, 32, 51, 0.12);
+    color: var(--text-soft);
+}
+
+.footer-copy {
+    font-size: 0.95rem;
+}
+
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(22, 32, 51, 0.1);
+    background-color: rgba(255, 255, 255, 0.72);
     color: var(--text-main);
-    background-color: var(--surface-strong);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-/* textarea grow only vertically */
-.form-field textarea {
-    resize: vertical;
-    min-height: 10rem;
-}
-
-/* keyboard focus style on form fields */
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(184, 92, 56, 0.18);
-    background-color: #fffdf9;
-}
-
-/* submit button style */
-.form-button {
-    justify-self: start;
-    min-height: 2.9rem;
-    padding: 0.8rem 1.25rem;
-    border: 0;
-    border-radius: 999px;
-    font: inherit;
-    font-weight: 700;
+.footer-link:hover,
+.footer-link:focus-visible {
     color: #ffffff;
-    background-color: var(--accent-dark);
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-/* hover and focus styles for submit button */
-.form-button:hover,
-.form-button:focus-visible {
     background-color: var(--accent);
     transform: translateY(-1px);
 }
 
-/* main project card layout and container style */
+.footer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.125rem;
+    height: 1.125rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.footer-icon-linkedin-dark {
+    background-color: var(--accent-dark);
+    color: #ffffff;
+}
+
+.section-heading {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-heading h2,
+.hero-section h2,
+.project-card-content h2,
+.project-card-content h3,
+.contact-form h2 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.section-link,
+.project-button,
+.form-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    padding: 0.8rem 1.2rem;
+    font-weight: 700;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.section-link {
+    justify-self: start;
+    border: 1px solid var(--border-soft);
+    background-color: var(--surface-strong);
+    color: var(--text-main);
+}
+
+.section-link:hover,
+.section-link:focus-visible {
+    color: #ffffff;
+    background-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.project-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
 .project-card {
     display: grid;
     grid-template-rows: auto 1fr;
     overflow: hidden;
     border: 1px solid var(--border-soft);
-    border-radius: 1.5rem;
-    background-color: rgba(255, 250, 244, 0.96);
-    box-shadow: 0 14px 30px rgba(31, 41, 51, 0.1);
+    background-color: var(--surface-strong);
+    box-shadow: var(--shadow-card);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* vertical shift effect of the card on hover */
-.project-card:hover {
+.project-card:hover,
+.project-card:focus-within {
     transform: translateY(-6px);
     box-shadow: 0 22px 42px rgba(31, 41, 51, 0.14);
 }
 
-/* creates a grid area inside the proj card so a "Web Design" project category badge appears on top of the image */
 .project-card-media {
     display: grid;
     grid-template-columns: 1fr;
@@ -302,116 +328,180 @@ p {
     align-items: start;
 }
 
-/* project image fills the card media area */
 .project-card-image {
     grid-area: 1 / 1;
     display: block;
     width: 100%;
-    height: 16rem;
+    height: 14rem;
     object-fit: cover;
 }
 
-/* styles the project category badge */
 .project-badge {
     grid-area: 1 / 1;
     align-self: start;
-    justify-self: start;
-    margin: 1rem;
-    padding: 0.45rem 0.8rem;
-    border-radius: 999px;
-    background-color: rgba(255, 250, 244, 0.92);
+    justify-self: end;
+    max-width: min(11rem, calc(100% - 1.5rem));
+    margin: 0.75rem 0 0 0;
+    padding: 0.375rem 0.5rem 0.375rem 1rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(238, 248, 247, 0.9) 100%);
     color: var(--accent-dark);
-    font-size: 0.8rem;
+    font-size: 0.6875rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    line-height: 1.25;
+    letter-spacing: 0.06em;
+    text-align: right;
     text-transform: uppercase;
+    box-shadow: 0 8px 18px rgba(22, 32, 51, 0.08);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10% 50%);
 }
 
-/* organizes the card content area, the text and button area with grid */
 .project-card-content {
     display: grid;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto 1fr auto;
     gap: 1rem;
-    padding: 1.5rem;
+    padding: 1.375rem;
 }
 
-/* project card heading style */
-.project-card-content h2 {
-    margin: 0;
-    font-size: 1.6rem;
-    line-height: 1.2;
+.project-card-content h2,
+.project-card-content h3 {
+    font-size: 1.45rem;
 }
 
-/* styles the project button */
-.project-button {
-    align-self: end;
+.project-button,
+.form-button {
     justify-self: start;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 2.9rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 999px;
+    border: 0;
     background-color: var(--accent-dark);
     color: #ffffff;
-    font-weight: 700;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
 }
 
-/* add hover and focus to button */
 .project-button:hover,
-.project-button:focus-visible {
+.project-button:focus-visible,
+.form-button:hover,
+.form-button:focus-visible {
     background-color: var(--accent);
     transform: translateY(-1px);
 }
 
-/* applies layout changes for wider screens */
+.contact-form {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.form-field {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.form-field label {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-soft);
+    font: inherit;
+    color: var(--text-main);
+    background-color: var(--surface-strong);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 10rem;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--focus-ring);
+    background-color: #fcfeff;
+}
+
 @media (min-width: 700px) {
-    /* adds space above the header */
     .site-header {
-        padding-top: 1.5rem;
+        padding-top: 1rem;
     }
 
-    /* change the logo and nav flex for larger screens */
     .site-nav {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
     }
 
-    /* links go right on larger screens */
     .nav-list {
         justify-content: flex-end;
     }
 
-    /* increases hero section padding */
+    .site-logo-mark {
+        font-size: 1.2rem;
+    }
+
+    .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     .hero-section {
-        padding: 3rem;
-    }
-
-    /* gives the homepage content panel more padding */
-    .home-feature-content {
         padding: 2rem;
     }
 
-    /* project card becomes two columns */
-    .project-card {
-        grid-template-columns: minmax(18rem, 1.1fr) minmax(20rem, 1fr);
-        grid-template-rows: auto;
+    .home-hero {
+        padding: 2.5rem;
     }
 
-    /* project image stretches */
-    .project-card-image {
-        height: 100%;
-        min-height: 100%;
+    .hero-layout {
+        grid-template-columns: minmax(0, 1.5fr) minmax(16rem, 0.5fr);
+        gap: 2rem;
     }
 
-    .project-card-content {
-        padding: 2rem;
+    .hero-media {
+        justify-self: end;
+        width: min(100%, 24rem);
     }
 
-    /* contact form more padding */
+    .featured-projects,
     .contact-form {
         padding: 2rem;
+    }
+
+    .section-heading {
+        grid-template-columns: 1fr auto;
+        align-items: end;
+    }
+
+    .section-link {
+        justify-self: end;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@keyframes logo-cursor-blink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (min-width: 980px) {
+    .project-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }

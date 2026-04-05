@@ -10,7 +10,9 @@
     <header class="site-header">
         <nav class="site-nav" aria-label="Primary">
             <a class="site-logo" href="index.html">
-                <img class="site-logo-image" src="./images/logo.png" alt="Noomen Belmechri logo" />
+                <span class="site-logo-mark" aria-label="noomen dot dev">
+                    &lt;noomen&gt;&lt;dev&gt;<span class="site-logo-cursor" aria-hidden="true"></span>
+                </span>
             </a>
 
             <ul class="nav-list">
@@ -23,15 +25,9 @@
     </header>
 
     <main class="page-content">
-        <section class="hero-section" aria-labelledby="contact-title">
-            <p class="eyebrow">Contact form</p>
-            <h1 id="contact-title">Contact me</h1>
-            <p>This is a contact form with the proper  elements and focus/hover states.</p>
-        </section>
-
         <section class="contact-section" aria-labelledby="contact-form-title">
             <form class="contact-form" action="#" method="post">
-                <h2 id="contact-form-title">Send a Message</h2>
+                <h2 id="contact-form-title">Drop me a message</h2>
 
                 <div class="form-field">
                     <label for="name">Name</label>
@@ -62,5 +58,15 @@
             </form>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-copy">Noomen Belmechri Portfolio</p>
+            <a class="footer-link" href="https://www.linkedin.com/in/noomenbm/" aria-label="LinkedIn profile">
+                <span class="footer-icon footer-icon-linkedin-dark" aria-hidden="true">in</span>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>

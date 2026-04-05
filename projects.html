@@ -10,7 +10,9 @@
     <header class="site-header">
         <nav class="site-nav" aria-label="Primary">
             <a class="site-logo" href="index.html">
-                <img class="site-logo-image" src="./images/logo.png" alt="Noomen Belmechri logo" />
+                <span class="site-logo-mark" aria-label="noomen dot dev">
+                    &lt;noomen&gt;&lt;dev&gt;<span class="site-logo-cursor" aria-hidden="true"></span>
+                </span>
             </a>
 
             <ul class="nav-list">
@@ -23,37 +25,87 @@
     </header>
 
     <main class="page-content">
-        <section class="hero-section" aria-labelledby="projects-title">
-            <p class="eyebrow">Project card</p>
+        <!-- <section class="hero-section" aria-labelledby="projects-title">
             <h1 id="projects-title">Projects</h1>
-            <p>This page showcases a feature card built with semantic HTML and CSS Grid.</p>
-        </section>
+            <p>Here is a full list of selected web and design projects from my portfolio.</p>
+        </section> -->
 
-        <section class="project-showcase" aria-labelledby="featured-project-title">
-            <article class="project-card">
-                <div class="project-card-media">
-                    <img
-                        class="project-card-image"
-                        src="./images/forest-sunset.jpg"
-                        alt="A forest path at sunset surrounded by warm light and tall trees"
-                    />
-                    <p class="project-badge">Web Design</p>
+        <section class="featured-projects" aria-labelledby="all-projects-title">
+            <div class="section-heading">
+                <div>
+                    <h2 id="all-projects-title">All Projects</h2>
                 </div>
+            </div>
 
-                <div class="project-card-content">
-                    <h2 id="featured-project-title">Nature Trail Landing Page</h2>
-                    <p>
-                        A responsive project showcase page focused on forests, because I love forests!
-                    </p>
-                    <p>
-                        Forests, when the weather is good, provide a calm, warm, refreshing environment where one 
-                        can enjoy nature in the purest of its forms.
-                    </p>
-                    <!-- This button links back to the homepage for now!!!-->
-                    <a class="project-button" href="index.html">View Project</a>
-                </div>
-            </article>
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="project-card-media">
+                        <img
+                            class="project-card-image"
+                            src="./images/galapagosfirst.jpg"
+                            alt="Napo wildlife centre exterior, Ecuador."
+                        />
+                        <p class="project-badge">Web Design</p>
+                    </div>
+
+                    <div class="project-card-content">
+                        <h3>GalapagosFirst.com</h3>
+                        <p>
+                            A website for the Ecuadorian Travel Agency GalapagosFirst that offers tours on the world famous Galapagos Islands as well as on the Ecuadorian mainland.
+                        </p>
+                        <a class="project-button" href="http://www.galapagosfirst.com" target="_blank">View Project</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-card-media">
+                        <img
+                            class="project-card-image"
+                            src="./images/lapausesucree.jpg"
+                            alt="Nav and Hero section of lapausesucree.ca"
+                        />
+                        <p class="project-badge">e-Commerce</p>
+                    </div>
+
+                    <div class="project-card-content">
+                        <h3>LaPauseSucree.ca</h3>
+                        <p>
+                            An online shop for the Montreal-based bakery <em>La Pause Sucrée</em>. Customers can order pastries online as well make bookings for a Afternoon / High Tea Service.
+                        </p>
+                        <a class="project-button" href="http://www.lapausesucree.ca" target="_blank">View Project</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-card-media">
+                        <img
+                            class="project-card-image"
+                            src="./images/aubergeinn.jpg"
+                            alt="Hostal L'Auberge-inn courtyard, Quito, Ecuador."
+                        />
+                        <p class="project-badge">Web Design</p>
+                    </div>
+
+                    <div class="project-card-content">
+                        <h3>Auberge-Inn-Hostal.com</h3>
+                        <p>
+                            A website for one of the most famous backpacker hostels in central Quito: The swiss-owned and operated Hostal L'Auberge-inn.
+                        </p>
+                        <a class="project-button" href="http://www.auberge-inn-hostal.com" target="_blank">View Project</a>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-copy">Noomen Belmechri Portfolio</p>
+            <a class="footer-link" href="https://www.linkedin.com/in/noomenbm/" aria-label="LinkedIn profile">
+                <span class="footer-icon footer-icon-linkedin-dark" aria-hidden="true">in</span>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
