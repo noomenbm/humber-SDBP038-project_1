@@ -147,6 +147,7 @@ p {
 }
 
 .hero-section,
+.all-projects,
 .featured-projects,
 .project-showcase,
 .contact-section {
@@ -195,6 +196,7 @@ h1 {
     box-shadow: var(--shadow-soft);
 }
 
+.all-projects,
 .featured-projects {
     padding: 1.5rem;
     border-top: 1px solid rgba(22, 32, 51, 0.12);
@@ -264,6 +266,59 @@ h1 {
     display: grid;
     gap: 1rem;
     margin-bottom: 1.5rem;
+}
+
+.search-box {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.search-input-wrap {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    width: min(100%, 30rem);
+    border: 1px solid var(--border-soft);
+    background-color: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 0.625rem 1.375rem rgba(22, 32, 51, 0.06);
+}
+
+.search-icon {
+    padding: 0 0 0 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 0.625rem;
+    border: 0;
+    font: inherit;
+    color: var(--text-main);
+    background-color: transparent;
+}
+
+.search-input::placeholder {
+    color: var(--text-soft);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-input-wrap:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.25rem var(--focus-ring);
 }
 
 .section-heading h2,
@@ -426,6 +481,16 @@ h1 {
     background-color: #fcfeff;
 }
 
+.search-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
 @media (min-width: 700px) {
     .site-header {
         padding-top: 1rem;
@@ -469,6 +534,7 @@ h1 {
         width: min(100%, 24rem);
     }
 
+    .all-projects,
     .featured-projects,
     .contact-form {
         padding: 2rem;
@@ -481,6 +547,14 @@ h1 {
 
     .section-link {
         justify-self: end;
+    }
+
+    .search-box {
+        justify-items: end;
+    }
+
+    .search-label {
+        width: min(100%, 30rem);
     }
 
     .project-grid {
