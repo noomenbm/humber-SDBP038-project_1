@@ -493,6 +493,13 @@ h1 {
     border: 0;
 }
 
+.no-results {
+    margin-top: 1rem;
+    color: var(--text-soft);
+    font-weight: 600;
+}
+
+
 @media (min-width: 700px) {
     .site-header {
         padding-top: 1rem;
